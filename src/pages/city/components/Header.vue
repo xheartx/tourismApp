@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'HomeHeader',
+  name: 'CityHeader',
   props: {
     city: String
   }
