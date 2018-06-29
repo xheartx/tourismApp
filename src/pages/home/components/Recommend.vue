@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="title">热销推荐</div>
-    <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+    <ul class="wrapper">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -16,25 +16,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data() {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '印象西湖',
-        desc: '“最忆是杭州”- G20峰会特别版《印象西湖》'
-      },{
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '印象西湖',
-        desc: '“最忆是杭州”- G20峰会特别版《印象西湖》'
-      },{
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/28/288fbeccc335f774a3.img.jpg_200x200_4a81bde9.jpg',
-        title: '印象西湖',
-        desc: '“最忆是杭州”- G20峰会特别版《印象西湖》'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -46,10 +29,18 @@ export default {
   text-indent: .2rem;
   margin-top: .2rem;
 }
+.wrapper{
+  padding: 0.2rem 0;
+}
 .item{
   display: flex;
   height: 1.9rem;
   overflow: hidden;
+  &:last-child{
+    &::before{
+      display: none;
+    }
+  }
   .item-img{
     width: 1.7rem;
     height: 1.7rem;

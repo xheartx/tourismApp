@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.text">
@@ -18,49 +18,20 @@
 <script>
 export default {
   name: 'HomeIcon',
+  props: {
+    list: Array
+  },
   data() {
     return {
-      iconsList: [{
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点门票'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ed/cf572be30fc32f02.png',
-        desc: 'Q+精选'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
-        desc: '主题乐园'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-        desc: '漂流'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-        desc: '西湖'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-        desc: '夏日玩水'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png',
-        desc: '宋城千古情'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '杭州必游'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-        desc: '千岛湖'
-      }, {
-        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png',
-        desc: '全部玩乐'
-      }],
       swiperOption: {
-        // pagination: '.swiper-pagination',
-        // loop: true
+        autoplay: false
       }
     }
   },
   computed: {
     pages() {
       const iconsPage = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!iconsPage[page]) {
           iconsPage[page] = []
@@ -68,6 +39,9 @@ export default {
         iconsPage[page].push(item)
       })
       return iconsPage
+    },
+    showSwiper() {
+      return this.list.length
     }
   }
 }
