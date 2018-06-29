@@ -27,7 +27,7 @@ export default {
       float: left;
       .back-icon{
         text-align: center;
-        font-size: .4rem;
+        font-size: .35rem;
       }
     }
     .header-input{
