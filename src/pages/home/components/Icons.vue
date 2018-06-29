@@ -7,7 +7,7 @@
           <div class="icon-img">
             <img :src="item.iconUrl" alt="">
           </div>
-          <p class="icon-desc">{{item.text}}</p>
+          <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
       <!-- Optional controls -->
@@ -22,34 +22,34 @@ export default {
     return {
       iconsList: [{
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票'
+        desc: '景点门票'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ed/cf572be30fc32f02.png',
-        text: 'Q+精选'
+        desc: 'Q+精选'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
-        text: '主题乐园'
+        desc: '主题乐园'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-        text: '漂流'
+        desc: '漂流'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-        text: '西湖'
+        desc: '西湖'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-        text: '夏日玩水'
+        desc: '夏日玩水'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png',
-        text: '宋城千古情'
+        desc: '宋城千古情'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        text: '杭州必游'
+        desc: '杭州必游'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-        text: '千岛湖'
+        desc: '千岛湖'
       }, {
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png',
-        text: '全部玩乐'
+        desc: '全部玩乐'
       }],
       swiperOption: {
         // pagination: '.swiper-pagination',
@@ -81,9 +81,7 @@ export default {
   padding-bottom: 50%;
 }
 .icons{
-  height: 0;
-  padding-bottom: 50%;
-  overflow: hidden;
+  margin-top: .1rem;
   .icon{
     float: left;
     width: 25%;
