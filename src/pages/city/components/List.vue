@@ -4,15 +4,18 @@
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">北京</div>
+          <div class="button-wrapper active">
+            <div class="button">{{city}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div class="button-wrapper"
+               v-for="item of hot"
+               @click="handleCityClick(item.name)"
+               :key="item.id">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -23,7 +26,10 @@
            :key="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div class="item border-bottom"
+            @click="handleCityClick(innerItem.name)"
+            v-for="innerItem of item"
+            :key="innerItem.id">{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -31,6 +37,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import Bscroll from 'better-scroll'
 
 export default {
@@ -39,6 +46,11 @@ export default {
     hot: Array,
     cities: Object,
     letter: String
+  },
+  computed: {
+    ...mapState([
+      'city'
+    ])
   },
   watch: {
     letter() {
@@ -50,6 +62,15 @@ export default {
   },
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  methods: {
+    ...mapMutations([
+      'changeCity'
+    ]),
+    handleCityClick(city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    }
   }
 }
 </script>
@@ -81,6 +102,12 @@ export default {
     .button-wrapper{
       float: left;
       width: 33.33%;
+      &.active{
+        color: @bgColor;
+        .button{
+          border-color: @bgColor;
+        }
+      }
       .button{
         padding: .1rem;
         text-align: center;
