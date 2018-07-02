@@ -1,7 +1,8 @@
 <template>
   <div>
-    <detail-header></detail-header>
     <detail-banner></detail-banner>
+    <detail-header></detail-header>
+    <div class="content"></div>
   </div>
 </template>
 <script>
@@ -16,4 +17,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.content{
+  height: 50rem;
+}
 </style>
