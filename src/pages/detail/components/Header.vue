@@ -55,6 +55,7 @@ export default {
 @import '~styles/varibles.less';
 .header-abs{
   position: absolute;
+  z-index: 10;
   left: .2rem;
   top: .2rem;
   width: .8rem;
@@ -70,6 +71,7 @@ export default {
 }
 .header-fixed{
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
